@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Tour - Rajawali Ministry</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <nav id="navbar">
+        <a href="#" class="logo"><img src="images/logo rm-no bg.png" alt="Logo Rajawali Ministry"></a>
+        <div class="menu-icon" id="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="tours.html" id="active" class="active">Tour</a>
+            <a href="promo.html">Promo</a>
+            <a href="destinations.html">Album Foto</a>
+            <a href="testimonials.html">Testimoni</a>
+            <a href="index.html#contact-us">Hubungi Kami</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Nama Tour</h1>
+            <p>Tanggal Mulai - Tanggal Berakhir</p>
+            <p>13 Hari, 12 Malam</p>
+
+            <a href="#" class="hero-button btn btn-secondary active" onclick="showDetails()">Lihat Detail Tour</a>
+            <a href="#" class="hero-button btn btn-primary" onclick="showTerms()">Syarat & Ketentuan</a>
+        </div>
+    </section>
+
+    <main>
+        <section class="tour-detail" id="tour-detail">
+            <div class="tour-header">
+                <h2>Paket Tour Jelajah Tanah Suci</h2>
+                <h4>1-10 Agustus 2024</h4>
+                <p>High Season</p>
+                <div id="price-section">
+                    <h3 id="normal-price">$2000</h3>
+                    <!-- Special Price Placeholder -->
+                    <h3 id="special-price" style="display: none;">$1800</h3>
+                </div>
+                <p id="destination">Bethlehem - Nazareth - Church of the Nativity</p>
+                <p>Dengan Ps. John Doe</p>
+                <div class="tour-brochure">
+                    <button class="btn btn-primary" onclick="downloadBrochure()">
+                        <i class="fas fa-file-download"></i> Unduh Brosur
+                    </button>
+                </div>
+            </div>
+
+            <div class="tour-detail-content">
+                <div class="tour-description">
+                    <h3>Deskripsi</h3>
+                    <p>Jelajahi tempat-tempat bersejarah di Israel dengan paket tour ini. Anda akan mengunjungi
+                        situs-situs penting seperti Bethlehem, Nazareth, dan Church of the Nativity, serta banyak lagi.
+                    </p>
+                </div>
+
+                <div class="tour-highlights">
+                    <h3>Sorotan Tour</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-church fa-lg"></i>
+                            <span>Mengunjungi Bethlehem dan Gereja Kelahiran</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-city fa-lg"></i>
+                            <span>Menyusuri kota Nazareth</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-praying-hands fa-lg"></i>
+                            <span>Beribadah di Church of the Nativity</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Image gallery -->
+                <div class="tour-images image-gallery">
+                    <h3>Destinasi</h3>
+                    <div class="image-container">
+                        <img src="images/bethlehem.jpg" alt="Bethlehem">
+                        <div class="image-desc">Bethlehem - Kota kelahiran Yesus</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/nazareth.jpg" alt="Nazareth">
+                        <div class="image-desc">Nazareth - Kota masa kecil Yesus</div>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/church-of-the-nativity.jpg" alt="Church of the Nativity">
+                        <div class="image-desc">Church of the Nativity - Gereja tempat Yesus dilahirkan</div>
+                    </div>
+                </div>
+
+                <!-- Yang Termasuk Section -->
+                <div class="tour-inclusions">
+                    <h3>Yang Termasuk</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-plane fa-lg"></i>
+                            <span>Tiket pesawat internasional</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt fa-lg"></i>
+                            <span>Asuransi perjalanan</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-shopping-bag fa-lg"></i>
+                            <span>Pengeluaran pribadi</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Yang Tidak Termasuk Section -->
+                <div class="tour-exclusions">
+                    <h3>Yang Tidak Termasuk</h3>
+                    <ul>
+                        <li><i class="fas fa-plane fa-lg"></i> Tiket pesawat internasional</li>
+                        <li><i class="fas fa-shield-alt fa-lg"></i> Asuransi perjalanan</li>
+                        <li><i class="fas fa-shopping-bag fa-lg"></i> Pengeluaran pribadi</li>
+                    </ul>
+                </div>
+
+                <div class="tour-additional-info">
+                    <h3>Informasi Tambahan</h3>
+                    <p>Tur ini dipandu oleh pembimbing rohani yang berpengalaman. Pastikan membawa pakaian yang nyaman
+                        dan perlengkapan ibadah.</p>
+                </div>
+
+                <div class="tour-itinerary">
+                    <h3>Itinerari</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hari</th>
+                                <th>Deskripsi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hari 1</td>
+                                <td>Tiba di hotel, check-in, briefing penyambutan</td>
+                            </tr>
+                            <tr>
+                                <td>Hari 2</td>
+                                <td>Mengunjungi Ubud Monkey Forest dan Goa Gajah Temple</td>
+                            </tr>
+                            <tr>
+                                <td>Hari 3</td>
+                                <td>Berwisata ke Tanah Lot Temple dan menikmati matahari terbenam di tepi laut</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="terms-conditions" id="terms-conditions" style="display:none;">
+            <div class="terms-header">
+                <h2>Syarat dan Ketentuan</h2>
+            </div>
+            <div class="terms-content">
+                <p>Syarat dan ketentuan paket tour ini adalah sebagai berikut:</p>
+                <ul>
+                    <li>Harga paket tour sudah termasuk tiket pesawat, akomodasi, dan makan selama perjalanan.</li>
+                    <li>Pembayaran dilakukan dalam dua tahap: DP 50% dan pelunasan 50% sebelum keberangkatan.</li>
+                    <li>Pembatalan tour setelah pelunasan dikenakan biaya pembatalan sebesar 50% dari total biaya.</li>
+                    <li>Paket tour tidak termasuk pengeluaran pribadi dan asuransi perjalanan tambahan.</li>
+                    <li>Peserta diwajibkan membawa dokumen perjalanan yang sah dan berlaku, serta mengikuti protokol kesehatan yang berlaku.</li>
+                </ul>
+                <p>Untuk informasi lebih lanjut, hubungi layanan pelanggan kami.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Alamat: Pakuwon Trade Center Lt LG (Sebelah Samsat),
+                        Surabaya, Jawa Timur, Indonesia</li>
+                    <li><i class="fas fa-phone-alt"></i> No. WhatsApp: +62 813 8445 4455</li>
+                    <li><i class="fas fa-envelope"></i> Email: info@rajawalimistry.com</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>YouTube Rajawali</h3>
+                <p><a href="https://www.youtube.com/@rajawaliministry_" target="_blank">Kunjungi Channel YouTube
+                        kami</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Paket Tour</h3>
+                <ul>
+                    <li><a href="#">Tour ke Yerusalem</a></li>
+                    <li><a href="#">Tour ke Betlehem</a></li>
+                    <li><a href="#">Tour ke Nazaret</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="social-media">
+            <a href="https://www.instagram.com/rajawaliministry_pilgrimage" target="_blank"
+                class="social-icon fab fa-instagram"></a>
+            <a href="https://www.facebook.com/p/PT-Rajawali-Ministry-100063903619628/" target="_blank"
+                class="social-icon fab fa-facebook"></a>
+            <a href="https://wa.me/6281384454455" target="_blank" class="social-icon fab fa-whatsapp"></a>
+        </div>
+        <p class="copyright">©2024 Rajawali Ministry. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript to handle navbar transparency on scroll -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuIcon = document.getElementById("menu-icon");
+            const navLinks = document.getElementById("nav-links");
+
+            menuIcon.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+                navbar.classList.toggle("navbar-active");
+            });
+
+            // Example data for demonstration
+            const specialPrice = null;  // Change this to null or undefined if there's no special price
+
+            if (specialPrice) {
+                document.getElementById('special-price').style.display = 'block';
+                document.getElementById('special-price').innerText = `$${specialPrice}`;
+                document.getElementById('normal-price').style.textDecoration = 'line-through';
+            }
+        });
+
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 0) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        window.addEventListener('scroll', function () {
+            var backToTopBtn = document.getElementById('back-to-top-btn');
+
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 40, // Adjust as needed
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // JavaScript to change the hero background images
+        const heroImages = ["images/bethlehem.jpg", "images/nazareth.jpg", "images/jerusalem.jpg"];
+        let currentImageIndex = 0;
+
+        function changeHeroImage() {
+            const heroSection = document.querySelector('.hero');
+            heroSection.style.backgroundImage = `url(${heroImages[currentImageIndex]})`;
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+        }
+
+        setInterval(changeHeroImage, 5000); // Change image every 5 seconds
+
+        function downloadBrochure() {
+            // Add your download logic here, e.g., tracking or showing a message
+            console.log("Brochure downloaded!");
+            // Optionally, you can redirect to the brochure URL
+            window.open("https://drive.google.com/link-to-brochure", "_blank");
+        }
+
+        function showDetails() {
+            document.getElementById('tour-detail').style.display = 'block';
+            document.getElementById('terms-conditions').style.display = 'none';
+
+            // Update button states
+            document.querySelector('.hero-button').classList.add('active');
+            document.querySelector('.btn-primary').classList.remove('active');
+        }
+
+        function showTerms() {
+            document.getElementById('tour-detail').style.display = 'none';
+            document.getElementById('terms-conditions').style.display = 'block';
+
+            // Update button states
+            document.querySelector('.hero-button').classList.remove('active');
+            document.querySelector('.btn-primary').classList.add('active');
+        }
+
+    </script>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/6281384454455" target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <!-- Back to Top Button -->
+    <button onclick="scrollToTop()" id="back-to-top-btn" title="Kembali ke atas"><i
+            class="fas fa-arrow-up"></i></button>
+</body>
+
+</html>

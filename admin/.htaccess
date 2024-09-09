@@ -1,0 +1,4 @@
+RewriteEngine On
+
+# Redirect requests to login.php if accessing /admin/
+RewriteRule ^$ login.php [L]

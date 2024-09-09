@@ -1,0 +1,2165 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #000000;
+    color: #fff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* Blurred background for navbar when menu is active */
+.navbar-active {
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.6);
+    /* Transparent grey background */
+}
+
+/* Navbar styles */
+nav {
+    background: rgba(0, 0, 0, 0);
+    padding: 0.5em 1em;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.5s;
+    top: 0;
+    /* Ensure the navbar sticks to the top */
+}
+
+nav.scrolled {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-right: 1em;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 1em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* styles.css */
+.nav-links a.active {
+    color: red;
+}
+
+
+nav .logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav .logo img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+nav a:hover {
+    color: #ff0000;
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 25px;
+    /* Adjusted to be aligned with logo */
+    left: 20px;
+    /* Positioned at the top left corner */
+    z-index: 1001;
+    /* Ensure the menu icon is above other content */
+}
+
+.menu-icon span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Navigation Bar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    nav a {
+        margin: 0.5em 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    #tours h2 {
+        margin-top: 50px;
+    }
+}
+
+/* Other CSS styles */
+#back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+    z-index: 9999;
+    display: none;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top-btn:hover {
+    background-color: #b60000;
+    transform: scale(1.1);
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    background-color: #25d366;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+.content-section {
+    padding: 4em 2em;
+    text-align: center;
+    background-color: #000000;
+    scroll-margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-section:nth-child(even) {
+    background-color: #fff;
+}
+
+.content-section h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.content-section p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    color: #bcbcbc;
+}
+
+/* Updated CSS */
+.content-section.israel-background {
+    position: relative;
+    background-image: url('images/jerusalem.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.content-section.israel-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
+    z-index: -1;
+}
+
+.israel-background .content {
+    position: relative;
+    z-index: 50;
+    color: #fff;
+}
+
+.content-section.israel-background .content h2,
+.content-section.israel-background .content p {
+    color: #fff;
+}
+
+.hero-section {
+    position: relative;
+    height: 90vh;
+    background-image: url('images/home-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2em 1em;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #000000);
+    pointer-events: none;
+}
+
+.hero-section .hero-content {
+    margin-bottom: 1.5em;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    margin-top: 4em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: white;
+}
+
+.tour-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: initial;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+    padding: 0.5em;
+    position: relative;
+    z-index: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0.5em;
+    flex: 1;
+}
+
+.form-container label {
+    font-weight: bold;
+    font-size: 13px;
+    color: #333;
+}
+
+.date-picker {
+    position: relative;
+    width: 100%;
+}
+
+.date-picker input {
+    padding: 0.5em;
+    font-size: 1em;
+    border: none;
+    border-bottom: 2px solid #ff5f5f;
+    width: 100%;
+    transition: border-color 0.3s;
+    background-color: transparent;
+    color: #333;
+}
+
+.date-picker input:focus {
+    border-color: #ff0000;
+    outline: none;
+}
+
+.form-container button {
+    margin: 1.2em;
+    padding: 0.5em 1em;
+    font-size: 15px;
+}
+
+.btn {
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    pointer-events: auto; /* Ensure the button is interactive */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.btn-primary {
+    background-color: #ff0000;
+}
+
+.btn-secondary {
+    margin-top: 20px;
+    background-color: #333;
+}
+
+.btn:hover {
+    background-color: #ff5555;
+}
+
+.btn.active {
+    background-color: #ffa8a8;
+    color: #ffffff;
+}
+
+.promo-section {
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.promo-name {
+    font-weight: normal;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.promo-disc-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+}
+
+.promo-disc,
+.promo-disc-bg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Arial Black', sans-serif;
+}
+
+.promo-disc {
+    top: 0;
+    font-size: 60px;
+    z-index: 1;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.451);
+    color: rgb(255, 219, 219);
+}
+
+.promo-disc-bg {
+    font-size: 130px;
+    color: transparent;
+    z-index: 0;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #363636;
+    top: 50%;
+    /* Adjust top position to center vertically */
+    transform: translate(-50%, -50%);
+    /* Center horizontally and vertically */
+}
+
+.price {
+    margin: 0;
+    font-size: 30px;
+    text-decoration: line-through;
+}
+
+.coupon {
+    background: linear-gradient(to bottom, #000000, #525252);
+    /* Standard syntax */
+    background-color: #181818;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.451);
+    position: relative;
+    /* To position the icon */
+}
+
+.coupon-icon {
+    position: absolute;
+    top: -65px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 130px;
+    color: #ff0000;
+    padding: 10px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.451);
+}
+
+.coupon-content {
+    margin-top: 50px;
+}
+
+.coupon-header {
+    position: relative;
+}
+
+.countdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    max-width: 300px;
+    /* Adjust width as needed */
+    margin: 20px auto;
+    /* Center horizontally */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional shadow for depth */
+    border-radius: 10px;
+    background-color: #fff;
+    /* White background */
+}
+
+.countdown-item {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.countdown-value {
+    font-size: 30px;
+    /* Adjust font size as needed */
+    font-weight: bold;
+    color: #333;
+    /* Adjust color as needed */
+    padding: 10px 0;
+}
+
+.countdown-label {
+    font-size: 10px;
+    /* Adjust font size as needed */
+    color: #333;
+    /* Adjust color as needed */
+    position: absolute;
+    bottom: 5px;
+    /* Position label at the bottom */
+    width: 100%;
+}
+
+.countdown-item:not(:last-child) {
+    border-right: 2px solid #ccc;
+    /* Vertical line to separate items */
+}
+
+.countdown-item:not(:last-child) {
+    border-right: 2px solid #ccc;
+    /* Vertical line to separate items */
+}
+
+/* Additional styles for Swiper */
+.swiper-container {
+    width: 100%;
+    /* Adjust as needed */
+    height: 400px;
+    margin: auto;
+    /* Center the swiper container */
+    margin-bottom: 1.2em;
+    position: relative;
+    left: 0;
+    /* Align the swiper container to the left of the screen */
+}
+
+.swiper-slide {
+    margin: 0;
+    padding: 0;
+    max-width: 300px;
+    max-height: 600px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional shadow for depth */
+}
+
+.swiper-slide img {
+    width: 300px;
+    /* Ensure the image fills the swiper slide */
+    height: 400px;
+    object-fit: cover;
+    /* Cover the entire swiper slide */
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover img {
+    transform: scale(1.1);
+    /* Zoom out effect on hover */
+}
+
+.swiper-slide .tour-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000db;
+    color: #ffffff;
+    padding: 1em;
+    text-align: center;
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.3s ease;
+    box-sizing: border-box;
+}
+
+.swiper-slide:hover .tour-details {
+    opacity: 1;
+    /* Show details on hover */
+}
+
+.tour-details h3 {
+    font-size: 1.2em;
+    /* Adjust font size */
+}
+
+.tour-details p {
+    font-size: 1.3em;
+    /* Adjust font size */
+    margin-bottom: 0.4em;
+    color: #ffe3e3;
+    font-weight: normal;
+}
+
+.tour-details h4 {
+    font-size: 1.4em;
+    /* Adjust font size */
+    font-weight: lighter;
+}
+
+/* Styles for "Mengapa Harus Memilih Rajawali Ministry?" Section */
+#why-choose-us {
+    padding: 4em 2em;
+    text-align: center;
+    background-color: rgb(36, 36, 36);
+}
+
+#why-choose-us .reasons-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    /* Adjust the gap between items */
+}
+
+#why-choose-us .reason {
+    flex: 1 1 300px;
+    /* Adjust width as needed */
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent background */
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#why-choose-us h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#why-choose-us p {
+    font-size: 1.2em;
+    max-width: 80%;
+    /* Adjust max-width as needed */
+    margin: auto;
+}
+
+.reason i {
+    margin-top: 10px;
+    font-size: 100px;
+    margin-bottom: 10px;
+    color: #ff0000;
+    /* Adjust icon color */
+}
+
+/* About Us Section */
+.about-us-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-size: cover;
+    background-position: center;
+    padding: 4em 2em;
+    position: relative;
+    z-index: -11;
+    overflow: hidden;
+    /* Ensure any child elements respect the section's dimensions */
+}
+
+.about-us-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Adjust overlay opacity and color */
+    z-index: -9;
+    /* Ensure it's behind the content */
+}
+
+.about-us-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/bethlehem.jpg');
+    filter: grayscale(100%);
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: grayscale;
+    /* Apply grayscale effect */
+    z-index: -10;
+    /* Ensure it's in front of the overlay */
+}
+
+.about-us-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    color: white;
+}
+
+.about-us-text {
+    max-width: 50%;
+}
+
+.about-us-text h2 {
+    margin-bottom: 0.5em;
+    color: #ff0000;
+    /* Adjust color if needed */
+}
+
+.about-us-text p {
+    font-size: 1em;
+    line-height: 1.6;
+    /* Increase line height for better readability */
+    color: white;
+    margin-bottom: 1em;
+}
+
+/* Mission and Vision Sections */
+.mission-vision-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3em;
+    /* Adjust spacing */
+}
+
+.mission,
+.vision {
+    flex: 1;
+    /* Equal width for both sections */
+    color: white;
+    margin: 0 0.5em;
+    /* Adjust spacing between sections */
+}
+
+.mission h2,
+.vision h2 {
+    font-size: 1.2em;
+    /* Larger font size compared to About Us */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Darker background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.228);
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+    color: #000000;
+    /* Adjust color if needed */
+}
+
+.mission p,
+.vision p,
+.about p {
+    font-size: 1em;
+    /* Normal font size */
+    line-height: 1.6;
+    /* Increase line height for better readability */
+    color: white;
+    margin-bottom: 1em;
+}
+
+.about h2 {
+    font-size: 2em;
+    /* Larger font size for About Us title */
+    margin-bottom: 0.5em;
+    color: #ffffff;
+    /* Adjust color if needed */
+}
+
+.about {
+    flex: 1;
+    /* Equal width for About Us section */
+    padding: 0 0.5em;
+    /* Adjust padding */
+    color: white;
+}
+
+/* Gallery Styled like a Museum */
+.gallery-museum {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    /* Adjusted min-width for images */
+    grid-gap: 0.8em;
+    max-width: 45%;
+    margin-top: 3em;
+    /* Adjust spacing */
+    clear: both;
+    /* Clear float to prevent overlapping */
+}
+
+.gallery-museum img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.228);
+}
+
+
+/* Destinations Section */
+.destinations-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.destination {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.destination img {
+    width: 100%;
+    height: 200px;
+    /* Set a fixed height for the images */
+    object-fit: cover;
+    /* Ensure the image covers the container */
+}
+
+.destination h3 {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    color: #333;
+}
+
+.destination p {
+    font-size: 1em;
+    padding: 0 1em 1em;
+    color: #666;
+}
+
+.destination:hover {
+    transform: scale(1.05);
+}
+
+/* Testimonials Section */
+.testimonials-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial {
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+.testimonial p {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    color: #ffffff;
+}
+
+.testimonial h4 {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    color: #333;
+}
+
+.stats-section {
+    background-color: black;
+    padding: 50px;
+    border-radius: 20px;
+    color: white;
+}
+
+.tour-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.tour-stats div {
+    text-align: center;
+    background-color: rgb(38, 38, 38);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 0 10px;
+    flex: 1;
+}
+
+.tour-stats i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(61, 61, 61, 0.709)
+}
+
+.tour-stats span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(255, 206, 206);
+}
+
+.tour-stats p {
+    font-size: 0.9rem;
+}
+
+/* Contact Us Section */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    text-align: left;
+}
+
+.contact-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.contact-form h3 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1em;
+}
+
+.contact-form label {
+    font-weight: bold;
+    font-size: 1em;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+.contact-form button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    color: #fff;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #ff5555;
+}
+
+.contact-info {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.contact-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    color: #666;
+}
+
+.contact-info #map {
+    height: 200px;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 1em;
+}
+
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    margin-bottom: 15px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+.alert-success {
+    background-color: #4CAF50;
+}
+.alert-close {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.footer-column {
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 5px;
+}
+
+.footer-column a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #f39c12;
+}
+
+.social-media {
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-icon {
+    align-items: center;
+    font-size: 24px;
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #f39c12;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container {
+        flex-direction: column;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1.2em;
+    }
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+
+/* Tours Page */
+.tours-page {
+    padding: 4em 1em;
+    position: relative;
+    /* Ensure relative positioning for overlay */
+}
+
+.tours-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/jerusalem.jpg');
+    /* Background image */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    /* Adjust opacity for subtle effect */
+    filter: grayscale(100%);
+    z-index: -1;
+    /* Move below content */
+}
+
+.tours-page h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    /* Ensures full-width centering */
+    font-size: 2em;
+}
+
+.tour-search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* Ensure items stretch to fill the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    width: 90%;
+    /* Adjust as necessary */
+}
+
+.form-date {
+    display: flex;
+    justify-content: space-between;
+    /* Ensure Tanggal Mulai and Tanggal Berakhir are spaced apart */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5px 0;
+    flex: 1;
+}
+
+.date-picker #start-date {
+    margin-bottom: 10px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+    /* Add some bottom margin for separation */
+}
+
+.filter-options {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.filter-options label,
+.filter-options select {
+    margin-right: 20px;
+    /* Adjust spacing between labels and selects */
+}
+
+/* Adjust the background and text colors */
+.filter-options select {
+    color: #000000;
+    /* Black text */
+    padding: 8px;
+    /* Padding for better spacing */
+    width: 200px;
+    /* Adjust width as needed */
+    border: none;
+    border-bottom: 2px solid #ff5f5f;
+    transition: border-color 0.3s;
+    background-color: transparent;
+}
+
+/* Style for labels */
+.filter-options label {
+    margin-right: 10px;
+    /* Adjust margin for spacing */
+}
+
+/* Adjust focus and hover states */
+.filter-options select:focus,
+.filter-options select:hover {
+    outline: none;
+    /* Remove default outline */
+    border-color: #ff0000;
+    /* Red border on focus or hover */
+}
+
+.tour-search-form .btn-primary {
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .form-date {
+        flex-direction: column;
+    }
+
+    .form-group {
+        width: 100%;
+        /* Full width on smaller screens */
+    }
+
+    .filter-options {
+        flex-direction: column;
+        /* Stack filters vertically */
+        align-items: flex-start;
+    }
+
+    .filter-options label,
+    .filter-options select {
+        margin-right: 0;
+        width: 100%;
+        /* Full width for labels and selects */
+    }
+
+    .filter-options select {
+        margin-bottom: 10px;
+    }
+}
+
+/* Tour Section */
+.tour-section {
+    margin: 40px;
+    background-color: rgba(0, 0, 0, 0.761);
+    border-radius: 20px;
+    padding: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.292);
+    /* Soft shadow */
+    overflow: hidden;
+    /* Ensure content does not overflow */
+}
+
+.tour-section h2 {
+    margin-bottom: 1em;
+    color: #ffffff;
+    /* Darker text color */
+}
+
+.tour-section .swiper-container {
+    margin: 40px auto;
+    /* Center the swiper container within the tour section */
+    padding: 0 20px;
+}
+
+.tour-result {
+    margin: 0 100px;
+}
+
+.tour-list {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* Limit to 2 columns */
+    gap: 2em;
+    /* Adjust gap between tour cards */
+    justify-items: center;
+    /* Center items in grid */
+}
+
+/* Tour Card */
+.tour-card {
+    background-color: #353535;
+    display: flex;
+    /* Use flexbox for horizontal layout */
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    overflow: hidden;
+    /* Soft shadow for images */
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    /* Adjust margin as needed */
+    position: relative;
+    /* Ensure relative positioning for absolute positioning inside */
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    /* Lift card on hover */
+}
+
+.tour-card img {
+    min-width: 100px;
+    width: 20%;
+    /* Adjust width for horizontal layout */
+    height: auto;
+    margin-right: 10px;
+}
+
+.tour-info {
+    color: #ffffff;
+    /* Text color */
+    margin-right: 100px;
+}
+
+.tour-info h3 {
+    font-size: 1.4em;
+    border-bottom: 2px solid #404040;
+}
+
+.tour-info h4 {
+    font-weight: bold;
+    font-size: 1em;
+    color: #ffd2d2;
+    /* Subtle text color */
+}
+
+#destination {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+    color: #ffffff;
+    /* Subtle text color */
+    font-style: italic;
+}
+
+.tour-info p {
+    color: #c4c4c4;
+    /* Text color */
+}
+
+.season {
+    position: absolute;
+    top: 30px;
+    /* Adjust distance from bottom */
+    right: 20px;
+    /* Adjust distance from right */
+    text-align: right;
+    color: #25d366;
+}
+
+.right-side {
+    position: absolute;
+    bottom: 20px;
+    /* Adjust distance from bottom */
+    right: 20px;
+    /* Adjust distance from right */
+    text-align: right;
+}
+
+.right-side p {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.right-side .btn {
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .tour-list {
+        display: block;
+    }
+
+    .tour-card {
+        margin-top: 10px;
+    }
+}
+
+
+/*Tours Details Page*/
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin: 50px;
+}
+
+.hero-content h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-button {
+    background-color: red;
+    margin-top: 50px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Dark overlay */
+    z-index: 1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #000000);
+    pointer-events: none;
+}
+
+/* Tour Detail Section */
+.tour-detail, .terms-conditions {
+    padding: 30px;
+    background-color: #2a2a2a;
+    margin: 50px 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    color: rgb(255, 255, 255);
+}
+
+.tour-brochure {
+    position: relative;
+}
+
+.tour-brochure .btn {
+    position: absolute;
+    top: -150px;
+    right: 0;
+    margin: 10px;
+    /* Adjust margin as needed */
+    z-index: 1;
+    /* Ensure button is above other content */
+}
+
+.tour-header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.tour-header h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.tour-header p,
+.tour-header h3 {
+    margin-bottom: 10px;
+}
+
+.tour-header h3 {
+    font-size: 2.3em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #ffadad;
+}
+
+.tour-description,
+.tour-highlights,
+.tour-inclusions,
+.tour-exclusions,
+.tour-additional-info,
+.tour-season,
+.tour-brochure,
+.tour-itinerary {
+    margin-bottom: 40px;
+}
+
+.tour-detail-content h3 {
+    font-size: 2em;
+    color: #dbdbdb;
+    margin-bottom: 15px;
+    text-decoration: overline;
+}
+
+
+.terms-conditions .terms-header {
+    border-bottom: 2px solid rgb(255, 200, 200);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.terms-conditions h2 {
+    margin: 0;
+}
+
+.terms-conditions .terms-content p {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+.terms-conditions .terms-content ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.terms-conditions .terms-content ul li {
+    font-family: 'Arial', sans-serif;
+    color: #d7d7d7;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.terms-conditions .terms-content p:last-child {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+/* Section Destinasi */
+.tour-destinations {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.tour-destinations h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.destination-item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.destination-item img {
+    max-width: 100%;
+    height: auto;
+    flex: 1;
+}
+
+.destination-content {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.destination-content h4 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.destination-content p {
+    font-size: 1em;
+    color: #666;
+}
+
+.tour-description p,
+.tour-additional-info p,
+.tour-season p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.tour-exclusions ul {
+    list-style: none;
+}
+
+.tour-highlights ul,
+.tour-inclusions ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+    /* Distribute items evenly */
+    align-items: center;
+    /* Center align items vertically */
+    flex-wrap: wrap;
+    /* Allow items to wrap to next row */
+    gap: 20px;
+    /* Spacing between items */
+}
+
+.tour-highlights ul li,
+.tour-inclusions ul li {
+    flex-basis: 30%;
+    /* Each item takes up 30% of the container width */
+    text-align: center;
+    /* Center-align text */
+}
+
+.tour-highlights ul i,
+.tour-inclusions ul i {
+    font-size: 60px;
+    /* Icon size */
+    color: rgb(255, 206, 122);
+    margin: 35px 0;
+    /* Space between icon and text */
+    display: block;
+    /* Ensure icons are block elements */
+}
+
+.tour-highlights ul li span,
+.tour-inclusions ul li span {
+    font-size: 16px;
+    /* Text size */
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.image-desc {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0 0 8px 8px;
+    font-size: 16px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+    filter: brightness(70%);
+}
+
+.image-container:hover .image-desc {
+    display: block;
+    opacity: 1;
+}
+
+/* Optional: Adding a shadow effect to the image container */
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.image-container:hover::before {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Itinerary Table */
+.tour-itinerary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tour-itinerary th,
+.tour-itinerary td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.tour-itinerary th {
+    background-color: #f2f2f2;
+    color: #000000;
+}
+
+.itinerary-table .tanggal-column {
+    width: 20%; /* Adjust the width as needed */
+}
+
+.itinerary-table .deskripsi-column {
+    width: 80%; /* Adjust the width as needed */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tour-brochure .btn {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 10px;
+        /* Adjust margin as needed */
+        z-index: 1;
+        /* Ensure button is above other content */
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .tour-itinerary table {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .tour-detail {
+        padding: 30px;
+    }
+
+    .tour-header h2 {
+        font-size: 2em;
+    }
+
+    .tour-header h3 {
+        font-size: 1.5em;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .tour-itinerary table {
+        font-size: 0.85em;
+    }
+}
+
+
+/* Promo Page */
+.promo .tours-page {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.promo .tours-page .coupon {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.promo .swiper-container {
+    background-color: #000000a5;
+    width: 100%;
+    padding: 30px 30px;
+    margin: 20px 0;
+
+}
+
+/* Destinations Page */
+
+.destination-hero .hero {
+    height: 300px;
+    filter: grayscale(100%);
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: grayscale;
+    /* Apply grayscale effect */
+    z-index: -10;
+}
+
+.photo-album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Responsive grid columns */
+    gap: 20px;
+    /* Gap between grid items */
+}
+
+.album-item {
+    position: relative;
+    /* Position relative for image positioning */
+    width: 100%;
+    /* Adjusted width for grid layout */
+    height: 100%;
+    /* Adjusted height for grid layout */
+    border: 2px solid #ddd;
+    /* Light gray border */
+    border-radius: 10px;
+    /* Rounded corners */
+    overflow: hidden;
+    /* Ensure content stays within borders */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth hover effect */
+}
+
+.album-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Shadow on hover */
+    transform: translateY(-5px);
+    /* Lift on hover */
+}
+
+.album-item img {
+    width: 100%;
+    /* Ensure the image takes full width of parent */
+    height: 100%;
+    /* Maintain aspect ratio */
+    object-fit: cover;
+    /* Cover to fill the container */
+    display: block;
+    transition: transform 0.3s ease;
+    /* Smooth image scaling */
+}
+
+.album-item:hover img {
+    transform: scale(1.1);
+    /* Scale up on hover */
+}
+
+/* Animation class for removing the photo */
+.animate-out {
+    transform: translateX(200%) rotate(-90deg) scale(0.8);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+#restart-btn {
+    z-index: 100;
+    top: 250px;
+    position: absolute;
+    padding: 10px 15px;
+    border-radius: 100%;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Cursor style */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color */
+}
+
+/* Testimonial Page */
+.testimonial-page {
+    padding: 4em 1em;
+    position: relative;
+    /* Ensure relative positioning for overlay */
+}
+
+.testimonial-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/jerusalem.jpg');
+    /* Background image */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    /* Adjust opacity for subtle effect */
+    filter: grayscale(100%);
+    z-index: -1;
+    /* Move below content */
+}
+
+.container .testimonial-text {
+    background-color: #00000000;
+    color: #ffffff;
+    /* Adjust text color for readability */
+    max-width: 400px;
+    text-align: left;
+    padding: 20px;
+    border: none;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.section-subtitle p {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.testimonial-page .testimonial-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ffffff;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.87);
+}
+
+.testimonial-text .author {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: rgb(255, 134, 134);
+}
+
+.testimonial-text .rating {
+    margin-top: 5px; /* Adjust spacing between author and rating */
+}
+
+.rating {
+    display: inline;
+    position: relative;
+}
+
+.rating .fas {
+    color: #ddd;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.87);
+    /* Color for empty stars (grey) */
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.rating .filled {
+    color: #ffd700;
+    /* Color for filled stars (yellow) */
+}
+
+.departure-date {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.testimonial-video {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.testimonial-video .video-wrapper {
+    width: 80%;
+    position: relative;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625 or 56.25%) */
+}
+
+.testimonial-video .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    right: -10vw;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-style: none;
+}
+
+.other-testimonials .video-wrapper iframe {
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-style: none;
+    margin-top: 30px;
+}
+
+.other-testimonials {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.testimonial-navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #0000009c;
+    border-radius: 30px;
+    padding: 40px;
+    width: 70%;
+    margin: 0 auto; /* Center horizontally */
+}
+
+.other-testimonials h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.testimonial-navigation .testimonial-text {
+    justify-content: center;
+    text-align: center;
+}
+
+#testimonial-display {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px; /* Adjust as needed for spacing */
+}
+
+/* Style for the buttons */
+.arrow-button {
+    background-color: #fff; /* Button background color */
+    border: 1px solid #ddd; /* Border color */
+    border-radius: 50%; /* Circular buttons */
+    padding: 10px; /* Adjust size as needed */
+    font-size: 20px; /* Adjust icon size */
+    color: #333; /* Icon color */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Position absolutely within the container */
+    z-index: 1; /* Ensure buttons are above content */
+    transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.arrow-button:hover {
+    background-color: #f0f0f0; /* Change on hover */
+}
+
+#prevTestimonial {
+    left: 50px; /* Position on the left side */
+}
+
+#nextTestimonial {
+    right: 50px; /* Position on the right side */
+}
+
+/* FAQ Section */
+.tnc .hero-content h1, .faq .hero-content h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.faq .hero-content h3 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.faq-search {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center the search bar horizontally */
+}
+
+.faq-search input {
+    min-width: 300px;
+    width: 450px; /* Adjust width to make it larger */
+    padding: 10px; /* Increased padding for better usability */
+    border: 2px solid #b60000; /* Thicker border with main color */
+    border-radius: 25px; /* Rounded corners for a modern look */
+    font-size: 1rem; /* Larger font size for better readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition effects */
+}
+
+.faq-search input:focus {
+    border-color: #ff6f6f; /* Highlight border color on focus */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on focus */
+}
+
+/* FAQ Section */
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 5px;
+    background: #b60000;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 1.1rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question:hover {
+    background-color: #ffa8a8;
+    border-color: #bbb;
+}
+
+.dropdown-icon {
+    font-size: 1.2rem;
+    color: #fff;
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Adjust dropdown icon rotation when answer is visible */
+.faq-item.active .dropdown-icon {
+    transform: rotate(180deg);
+}
